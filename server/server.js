@@ -10,12 +10,7 @@ const app = express();
 app.use(express.json())
 app.use(express.urlencoded({extended:false}))
 
-app.use(cors({
-origin : [
-  "http://localhost:3000/",
-  "https://mern-task-app-l6qn.onrender.com"
-]}
-))
+app.use(cors())
 app.use("/api/tasks",taskRouter)
 
 // Routes
@@ -31,7 +26,7 @@ app.get("/", (req, res) => {
 mongoose
   .connect(process.env.MONGO_URI)
   .then(() => {
-    const PORT = process.env.POR || 5000;
+    const PORT = process.env.PORT || 5000;
     app.listen(PORT, () => {
       console.log(`Server running on Port ${PORT}`);
     });
