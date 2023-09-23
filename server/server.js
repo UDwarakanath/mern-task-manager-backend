@@ -13,7 +13,7 @@ app.use(express.urlencoded({extended:false}))
 app.use(cors({
 origin : [
   "http://localhost:3000/",
-  "mern-task.onrender.com"
+  "https://mern-task-app-l6qn.onrender.com"
 ]}
 ))
 app.use("/api/tasks",taskRouter)
