@@ -10,7 +10,12 @@ const app = express();
 app.use(express.json())
 app.use(express.urlencoded({extended:false}))
 
-app.use(cors())
+app.use(cors({
+origin : [
+  "http://localhost:3000/",
+  "mern-task.onrender.com"
+]}
+))
 app.use("/api/tasks",taskRouter)
 
 // Routes
